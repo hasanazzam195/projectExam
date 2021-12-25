@@ -1,0 +1,51 @@
+﻿@model VMPatiant
+@{
+    ViewData["Title"] = "NewPatiant";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+@RenderSection("Body") {
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1">
+            <label>Name </label>
+
+        </div>
+
+        <div class="col-lg-3">
+            <input type="text" asp-for="pat.Name" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-1">
+            <label>Room </label>
+
+        </div>
+
+        <div class="col-lg-3">
+            <select class="form-control" asp-items='new SelectList(Model.lipatiant,"ID","Name")'></select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-1">
+            <label>Bed No </label>
+
+        </div>
+
+        <div class="col-lg-3">
+            <input type="text" asp-for="pat.BedNo" />
+        </div>
+    </div>
+
+    <div class="row">
+        
+
+        <div class="col-lg-3">
+            <input type="submit" asp-action="save" />
+        </div>
+    </div>
+</div>
+}
+

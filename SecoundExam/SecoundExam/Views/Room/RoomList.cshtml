@@ -1,0 +1,53 @@
+﻿@model List<Room>
+@{
+    ViewData["Title"] = "RoomList";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+@RenderSection("Body") {
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1">
+                <label>Room No</label>
+            </div>
+
+            <div class="col-lg-4">
+                <input type="text" class="form-control" name="txtSerch"  />
+            </div>
+
+            <div class="col-lg-4">
+                <input type="submit" class="btn btn-primary" value="Search" asp-action="SearchData" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Room No</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.RoomNo</td>
+                            <td>
+                                <a asp-action="PatiantData" asp-route-id="@item.ID">Patiant </a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+}
+
